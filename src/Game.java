@@ -55,6 +55,7 @@ public class Game extends JPanel {
             int y = ((i - x) / invadersPerRow);
 
 
+            //placera anorlunda invader sprites på olika platser
 
             BufferedImage sprite = ImageIO.read(new File("textures/invaderSprite1.png"));
             if(i > 29){
@@ -70,6 +71,8 @@ public class Game extends JPanel {
     }
 
     double invaderScale = .5;
+
+
 
     public Game() throws IOException {
         this.frame = new JFrame("space invaders");
@@ -114,17 +117,20 @@ public class Game extends JPanel {
 
         //logik
 
-        checkCollision();
 
+        checkCollision();
+        //få spelaren att gå vänster eller höger genom att trycka på piltangenterna
         if (keysDown.contains(37)) {
             player.x--;
         }
         if (keysDown.contains(39)) {
             player.x++;
         }
+        //om skottet är i skärmen så åker den uppåt.
         if (bullet.onscreen) {
             bullet.y--;
         }
+        //om skottets y position är 0 så är den inte i skärmen
         if (bullet.y < 0) {
             bullet.onscreen = false;
         }
@@ -144,6 +150,7 @@ public class Game extends JPanel {
 
 
         /* Clear background */
+
         g.setColor(Color.decode("#111111"));
         g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
         lastUpdate++;
