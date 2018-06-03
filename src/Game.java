@@ -175,7 +175,7 @@ public class Game extends JPanel {
                 invadersY += ySpeed;
             }
 
-            //om minX asså längst åt vänster är mer än Invaders X kordinat så går den inte år vänster och den går ner några steg
+            //om minX asså längst åt vänster är mer än Invaders X kordinat så går den inte år vänster och den går ner några steg.
             if (invadersX < minX) {
                 movingLeft = false;
                 invadersY += ySpeed;
