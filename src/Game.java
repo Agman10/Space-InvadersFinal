@@ -56,7 +56,6 @@ public class Game extends JPanel {
 
 
             //placera anorlunda invader sprites på olika platser
-
             BufferedImage sprite = ImageIO.read(new File("textures/invaderSprite1.png"));
             if(i > 29){
                 sprite = ImageIO.read(new File("textures/invaderSprite5.png"));
@@ -91,11 +90,13 @@ public class Game extends JPanel {
 
     }
 
+    // här kollar spelet om en kollision har hänt.
     private void checkCollision() {
         if (!bullet.onscreen) return;
         for (int i = 0; i < invaders.length; i++) {
             if (invaders[i].alive) {
 
+                //kolisionen
                 if (invaders[i].x + invadersX < bullet.x + bullet.sprite.getWidth() && invaders[i].x + invadersX + invaders[i].sprite.getWidth() > bullet.x && invaders[i].y + invadersY < bullet.y + bullet.sprite.getHeight() && invaders[i].sprite.getHeight() + invaders[i].y + invadersY > bullet.y) {
                     // En kollision har hänt!
                     invaders[i].alive = false;
@@ -176,16 +177,16 @@ public class Game extends JPanel {
 
         }
 
-
+        //invaders ritas ut och kollisionen skapas
         for (int i = 0; i < invaders.length; i++) {
             if (invaders[i].alive) drawImage(invaders[i].sprite, invaders[i].x + invadersX, invaders[i].y + invadersY, g);
         }
-
+        // rita ut skottet
         if (bullet.onscreen) {
             drawImage(bullet.sprite, bullet.x, bullet.y, g);
         }
 
-
+        //rita ut spelaren
         drawImage(player.sprite, player.x, player.y, g);
 
 
