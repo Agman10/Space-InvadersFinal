@@ -4,4 +4,9 @@ Spelet är inte klart men det går att styra  sitt skäpp och skjuta med den.
 
 Fienderna går fram och tillbaka och sedan neråt dem gör ingenting än men dem dör när man träffar dem och vissa ser unika ut.
 
-det svåraste var att få till kolisionen.
+det svåraste var att få till kolisionen. Jag tog invaderns höjd och bredden på båda alla sidor genom att kolla när skottet
+man skjuter åker genom båda invaders x kordinater. (Genom t.ex X åt vänster och X åt höger)
+
+Jag använde buffered image för att kunna rita ut mina sprites och key listener för att spelet ska läsa av vilka knappar jag trycker.
+
+Jag tycker att det gick bra även om jag inte hann gjöra allting klart.
