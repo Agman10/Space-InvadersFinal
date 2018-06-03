@@ -38,8 +38,8 @@ public class Game extends JPanel {
 
     public static void main(String[] args) throws IOException {
 
-        player = new Player(WIDTH / 2, 200, ImageIO.read(new File("textures/player.png")));
-        bullet = new Bullet(0, 0, ImageIO.read(new File("textures/playerBullet.png")));
+        player = new Player(WIDTH / 2, 200, ImageIO.read(new File("textures/player.png"))); //spelarens texture
+        bullet = new Bullet(0, 0, ImageIO.read(new File("textures/playerBullet.png"))); //skottets texture
         populateInvaders();
         Game game = new Game();
     }
@@ -155,10 +155,12 @@ public class Game extends JPanel {
         g.setColor(Color.decode("#111111"));
         g.fillRect(0, 0, WIDTH * SCALE, HEIGHT * SCALE);
         lastUpdate++;
+        //bestämmer hur snabbt invaderserna går åt sidan och ner
         if (lastUpdate > 3) {
             int xSpeed = 1;
             int ySpeed = 3;
 
+            //om invaderserna åker till vänster så blir X kordinaten minus annars blir den plus
             lastUpdate = 0;
             if (movingLeft) {
                 invadersX -= xSpeed;
@@ -166,10 +168,14 @@ public class Game extends JPanel {
                 invadersX += xSpeed;
             }
             //System.out.println(invadersX + " : " + (maxX));
+
+            //om invaders X kordinat är mer än maxX vilket är så långt den kan vara på höger sida så åker dem åt vänster om går ner några steg
             if (invadersX > maxX - invadersWidth) {
                 movingLeft = true;
                 invadersY += ySpeed;
             }
+
+            //om minX asså längst åt vänster är mer än Invaders X kordinat så går den inte år vänster och den går ner några steg
             if (invadersX < minX) {
                 movingLeft = false;
                 invadersY += ySpeed;
@@ -177,7 +183,7 @@ public class Game extends JPanel {
 
         }
 
-        //invaders ritas ut och kollisionen skapas
+        //invaders ritas
         for (int i = 0; i < invaders.length; i++) {
             if (invaders[i].alive) drawImage(invaders[i].sprite, invaders[i].x + invadersX, invaders[i].y + invadersY, g);
         }
