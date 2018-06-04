@@ -9,4 +9,6 @@ man skjuter åker genom båda invaders x kordinater. (Genom t.ex X åt vänster 
 
 Jag använde buffered image för att kunna rita ut mina sprites och key listener för att spelet ska läsa av vilka knappar jag trycker.
 
+Jag har lärt mig ganska mycket som till exempel att skapa kollision.
+
 Jag tycker att det gick bra även om jag inte hann gjöra allting klart.
