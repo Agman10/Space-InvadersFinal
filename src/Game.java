@@ -24,8 +24,8 @@ public class Game extends JPanel {
 
     static Bullet bullet;
 
-    static int invaderSpacing = 16;
-    static int invadersPerRow = 10;
+    static int invaderSpacing = 16; //avståndet mellan invaders
+    static int invadersPerRow = 10; //antallet iinvader pär rad
     static int invadersWidth = invaderSpacing * invadersPerRow;
     static boolean movingLeft = true;
     static int invadersX = (WIDTH / 2) - ((invadersPerRow * invaderSpacing) / 2);
